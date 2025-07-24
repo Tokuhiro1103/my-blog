@@ -27,4 +27,18 @@ export async function getAllPosts() {
   const posts = await Promise.all(slugs.map(slug => getPostBySlug(slug)));
   // 日付順にソート（新しい順）
   return posts.sort((a, b) => (a.meta.date < b.meta.date ? 1 : -1));
+}
+
+export async function getAllCategories() {
+  const posts = await getAllPosts();
+  // カテゴリの重複を排除し一覧化
+  const categories = Array.from(new Set(posts.map(post => post.meta.category).filter(Boolean)));
+  return categories;
+}
+
+export async function getAllTags() {
+  const posts = await getAllPosts();
+  // タグをフラット化し重複を排除
+  const tags = Array.from(new Set(posts.flatMap(post => Array.isArray(post.meta.tags) ? post.meta.tags : []).filter(Boolean)));
+  return tags;
 } 

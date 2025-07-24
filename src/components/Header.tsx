@@ -1,5 +1,5 @@
 const Header = () => (
-  <header className="w-full bg-blue-600 text-white py-4 px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+  <header className="w-full bg-green-600 text-white py-4 px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between">
     <h1 className="text-2xl font-bold mb-2 sm:mb-0">
       <a href="/">Tokkunのブログ</a>
     </h1>
