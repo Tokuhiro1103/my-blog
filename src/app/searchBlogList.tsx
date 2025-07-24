@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 interface Post {
   slug: string;
@@ -19,9 +19,17 @@ interface SearchBlogListProps {
   tags: string[];
 }
 
+const PAGE_SIZE = 5;
+
 export default function SearchBlogList({ posts, categories, tags }: SearchBlogListProps) {
   const [searchInput, setSearchInput] = useState('');
   const [search, setSearch] = useState('');
+  const [page, setPage] = useState(1);
+
+  // 検索ワードや元記事リストが変わったら1ページ目に戻す
+  useEffect(() => {
+    setPage(1);
+  }, [search, posts]);
 
   const filteredPosts = useMemo(() => {
     if (!search) return posts;
@@ -40,6 +48,10 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
     });
   }, [search, posts]);
 
+  // ページネーション用に分割
+  const totalPages = Math.ceil(filteredPosts.length / PAGE_SIZE);
+  const paginatedPosts = filteredPosts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
   };
@@ -52,6 +64,12 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
 
   const handleSearchClick = () => {
     setSearch(searchInput);
+  };
+
+  const handlePageChange = (newPage: number) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setPage(newPage);
+    }
   };
 
   return (
@@ -90,7 +108,6 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
             aria-label="検索"
             tabIndex={0}
           >
-            {/* SVG虫眼鏡アイコン */}
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
             </svg>
@@ -98,10 +115,10 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
         </div>
       </div>
       <ul>
-        {search && filteredPosts.length === 0 ? (
+        {search && paginatedPosts.length === 0 ? (
           <li>該当する記事がありません。</li>
         ) : (
-          filteredPosts.map((post: Post) => (
+          paginatedPosts.map((post: Post) => (
             <li key={post.slug} className="mb-4">
               <Link href={`/posts/${post.slug}`}>
                 <span className="text-xl text-blue-600 hover:underline">{post.meta.title}</span>
@@ -125,6 +142,34 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
           ))
         )}
       </ul>
+      {/* ページネーションUI */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-2 mt-8">
+          <button
+            onClick={() => handlePageChange(page - 1)}
+            disabled={page === 1}
+            className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+          >
+            前へ
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(num => (
+            <button
+              key={num}
+              onClick={() => handlePageChange(num)}
+              className={`px-3 py-1 rounded ${num === page ? 'bg-green-600 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+            >
+              {num}
+            </button>
+          ))}
+          <button
+            onClick={() => handlePageChange(page + 1)}
+            disabled={page === totalPages}
+            className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+          >
+            次へ
+          </button>
+        </div>
+      )}
     </main>
   );
 } 
