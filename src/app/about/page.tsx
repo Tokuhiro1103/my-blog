@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <main className="max-w-2xl mx-auto p-8">
+    <main className="max-w-4xl mx-auto p-8">
       <h1 className="text-3xl font-bold mb-4">自己紹介</h1>
       <p className="mb-4">
         こんにちは、Tokkunです！<br />

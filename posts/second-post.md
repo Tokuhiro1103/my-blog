@@ -3,6 +3,7 @@ title: "新しい記事のタイトル"
 date: "2024-06-10"
 category: "大学院"
 tags: ["大学院", "研究"]
+image: "/image_ex3.jpg"
 ---
 
 ここに記事本文を書きます。

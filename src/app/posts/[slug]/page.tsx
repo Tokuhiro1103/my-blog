@@ -24,7 +24,7 @@ export default async function PostPage({ params }: Props) {
   const contentHtml = processedContent.toString();
 
   return (
-    <main className="max-w-2xl mx-auto p-4">
+    <main className="max-w-4xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-2">{post.meta.title}</h1>
       <div className="text-gray-500 text-sm mb-6">{post.meta.date}</div>
       {post.meta.category && (
