@@ -1,9 +1,9 @@
 ---
-title: "新しい記事のタイトル"
+title: "（仮）大学院の授業公開！"
 date: "2024-06-10"
-category: "大学院"
+category: "留学情報"
 tags: ["大学院", "研究"]
-image: "/image_ex3.jpg"
+image: "/image_ex4.png"
 ---
 
 ここに記事本文を書きます。

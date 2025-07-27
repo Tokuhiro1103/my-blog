@@ -1,7 +1,7 @@
 ---
-title: "オーストラリア留学初日"
+title: "（仮）ブログ始めました！"
 date: "2024-06-01"
-category: "生活"
+category: "つぶやき"
 tags: ["留学", "生活"]
 image: "/image_ex1.jpg"
 ---
