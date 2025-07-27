@@ -25,6 +25,12 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
   const [searchInput, setSearchInput] = useState('');
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
+  const [isClient, setIsClient] = useState(false);
+
+  // クライアントサイドでのみレンダリングするためのフラグ
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // 検索ワードや元記事リストが変わったら1ページ目に戻す
   useEffect(() => {
@@ -93,27 +99,43 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
       </div>
       <div className="mb-6">
         <div className="flex items-center">
-          <input
-            type="text"
-            value={searchInput}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            placeholder="記事を検索..."
-            className="border px-3 py-2 rounded-l w-full focus:outline-none"
-            aria-label="記事を検索"
-          />
-          <button
-            onClick={handleSearchClick}
-            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r flex items-center"
-            aria-label="検索"
-            tabIndex={0}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
-            </svg>
-          </button>
+          {isClient ? (
+            <>
+              <input
+                type="text"
+                value={searchInput}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
+                placeholder="記事を検索..."
+                className="border px-3 py-2 rounded-l w-full focus:outline-none"
+                aria-label="記事を検索"
+              />
+              <button
+                onClick={handleSearchClick}
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r flex items-center"
+                aria-label="検索"
+                tabIndex={0}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+                </svg>
+              </button>
+            </>
+          ) : (
+            <div className="flex items-center w-full">
+              <div className="border px-3 py-2 rounded-l w-full bg-gray-100 text-gray-500">
+                記事を検索...
+              </div>
+              <div className="bg-gray-400 text-white px-4 py-2 rounded-r flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+                </svg>
+              </div>
+            </div>
+          )}
         </div>
       </div>
+      
       <ul>
         {search && paginatedPosts.length === 0 ? (
           <li>該当する記事がありません。</li>
