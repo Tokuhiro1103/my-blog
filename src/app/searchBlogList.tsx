@@ -61,27 +61,13 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
   };
 
   return (
-    <main className="max-w-4xl mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">ブログ一覧</h1>
-      <div className="mb-6">
-        <span className="font-semibold mr-2">カテゴリ:</span>
-        {categories.map((category: string) => (
-          <Link key={category} href={`/categories/${encodeURIComponent(category)}`} className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-2 mb-1 hover:bg-green-200">
-            {category}
-          </Link>
-        ))}
-      </div>
-      <div className="mb-6">
-        <span className="font-semibold mr-2">タグ:</span>
-        {tags.map((tag: string) => (
-          <Link key={tag} href={`/tags/${encodeURIComponent(tag)}`} className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2 mb-1 hover:bg-blue-200">
-            {tag}
-          </Link>
-        ))}
-      </div>
-
-      
-      <ul>
+    <div className="max-w-6xl mx-auto p-4">
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* メインコンテンツ */}
+        <main className="flex-1">
+          <h1 className="text-3xl font-bold mb-6">記事一覧</h1>
+          
+          <ul>
         {search && paginatedPosts.length === 0 ? (
           <li>該当する記事がありません。</li>
         ) : (
@@ -152,6 +138,39 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
           </button>
         </div>
       )}
-    </main>
+        </main>
+        
+        {/* サイドバー */}
+        <aside className="lg:w-64 flex-shrink-0">
+          <div className="sticky top-4">
+            <h2 className="text-xl font-bold mb-4">カテゴリ</h2>
+            <div className="mb-6">
+              {categories.map((category: string) => (
+                <Link 
+                  key={category} 
+                  href={`/categories/${encodeURIComponent(category)}`} 
+                  className="block bg-green-100 text-green-800 text-sm px-3 py-2 rounded mb-2 hover:bg-green-200 transition-colors"
+                >
+                  {category}
+                </Link>
+              ))}
+            </div>
+            
+            <h2 className="text-xl font-bold mb-4">タグ</h2>
+            <div className="mb-6">
+              {tags.map((tag: string) => (
+                <Link 
+                  key={tag} 
+                  href={`/tags/${encodeURIComponent(tag)}`} 
+                  className="block bg-blue-100 text-blue-800 text-sm px-3 py-2 rounded mb-2 hover:bg-blue-200 transition-colors"
+                >
+                  {tag}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
   );
 } 
