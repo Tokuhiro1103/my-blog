@@ -44,7 +44,12 @@ export default async function PostPage({ params }: Props) {
           {post.meta.category}
         </div>
       )}
-      <article dangerouslySetInnerHTML={{ __html: contentHtml }} />
+      <article 
+        className="prose prose-lg max-w-none"
+        dangerouslySetInnerHTML={{ __html: contentHtml }} 
+        id="article-content"
+      />
+
       {Array.isArray(post.meta.tags) && post.meta.tags.length > 0 && (
         <div className="mt-4">
           <span className="font-semibold mr-2">タグ:</span>
