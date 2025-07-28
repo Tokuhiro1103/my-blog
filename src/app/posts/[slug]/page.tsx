@@ -26,6 +26,18 @@ export default async function PostPage({ params }: Props) {
   return (
     <main className="max-w-4xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-2">{post.meta.title}</h1>
+      
+      {/* トップ画像 */}
+      {(post.meta.topImage || post.meta.image) && (
+        <div className="mb-6">
+          <img 
+            src={post.meta.topImage || post.meta.image} 
+            alt={`${post.meta.title}のトップ画像`}
+            className="w-full h-64 object-cover rounded-lg shadow-md"
+          />
+        </div>
+      )}
+      
       <div className="text-gray-500 text-sm mb-6">{post.meta.date}</div>
       {post.meta.category && (
         <div className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mb-6 ml-1">

@@ -4,6 +4,7 @@ date: "2024-06-10"
 category: "留学情報"
 tags: ["大学院", "研究"]
 image: "/image_ex4.png"
+topImage: "/image_ex4.png"
 ---
 
 ここに記事本文を書きます。

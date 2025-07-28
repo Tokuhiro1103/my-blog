@@ -10,7 +10,8 @@ interface Post {
     date: string;
     category?: string;
     tags?: string[];
-    image?: string;
+    image?: string;        // 記事一覧用
+    topImage?: string;     // 記事詳細用
   };
   content: string;
 }
