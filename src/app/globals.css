@@ -207,6 +207,61 @@ article img {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+/* 記事内の画像サイズ調整 */
+article img[alt*="小"] {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+article img[alt*="中"] {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+}
+
+article img[alt*="大"] {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+}
+
+article img[alt*="正方形"] {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* 画像サイズクラス */
+.img-small {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.img-medium {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.img-large {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.img-full {
+  width: 100%;
+  height: auto;
+}
+
+.img-square {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
 article a {
   color: #3b82f6;
   text-decoration: underline;
