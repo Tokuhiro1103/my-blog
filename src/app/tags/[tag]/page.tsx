@@ -67,7 +67,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
         </ul>
       )}
       <div className="mt-8">
-        <Link href="/tags" className="text-blue-700 hover:underline">← タグ一覧に戻る</Link>
+        <Link href="/" className="text-blue-700 hover:underline">← ホームに戻る</Link>
       </div>
     </main>
   );

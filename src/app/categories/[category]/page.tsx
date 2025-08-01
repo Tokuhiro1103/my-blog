@@ -67,7 +67,7 @@ export default async function CategoryPage({ params }: { params: { category: str
         </ul>
       )}
       <div className="mt-8">
-        <Link href="/categories" className="text-green-700 hover:underline">← カテゴリ一覧に戻る</Link>
+        <Link href="/" className="text-green-700 hover:underline">← ホームに戻る</Link>
       </div>
     </main>
   );
