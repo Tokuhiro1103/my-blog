@@ -202,9 +202,9 @@ article pre code {
 article img {
   max-width: 100%;
   height: auto;
-  border-radius: 0.5rem;
+  border-radius: 0;
   margin: 1.5rem 0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 /* 記事内の画像サイズ調整 */
@@ -230,6 +230,11 @@ article img[alt*="正方形"] {
   width: 300px;
   height: 300px;
   object-fit: cover;
+}
+
+article img[alt*="IELTS"] {
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* 画像サイズクラス */

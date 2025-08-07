@@ -31,7 +31,7 @@ export default async function PostPage({ params }: Props) {
           <img 
             src={post.meta.topImage || post.meta.image} 
             alt={`${post.meta.title}のトップ画像`}
-            className="w-full h-64 object-cover rounded-lg shadow-md"
+            className="w-full h-64 object-cover"
           />
         </div>
       )}
@@ -51,7 +51,7 @@ export default async function PostPage({ params }: Props) {
       />
 
       {Array.isArray(post.meta.tags) && post.meta.tags.length > 0 && (
-        <div className="mt-4">
+        <div className="mt-20">
           <span className="font-semibold mr-2">タグ:</span>
           {post.meta.tags.map((tag: string) => (
             <a key={tag} href={`/tags/${encodeURIComponent(tag)}`} className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2 mb-1 hover:bg-blue-200">
