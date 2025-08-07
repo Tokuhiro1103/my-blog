@@ -24,16 +24,16 @@ export default function AboutPage() {
         プログラミングなどの技術的なバックグラウンドはほとんどなく、ゼロからのスタートでしたがなんとか留学生活を乗り切っています。
       </p>
 
-      <h2 className="text-2xl font-bold mb-4 mt-8 bg-blue-100 text-blue-800 py-2 px-4 rounded-lg border-l-4 border-blue-500">ブログを始めたきっかけ</h2>
+      <h2 className="text-2xl font-bold mb-4 mt-8 bg-green-100 text-green-800 py-2 px-4 rounded-lg border-l-4 border-green-500">ブログを始めたきっかけ</h2>
       <p className="mb-4">
         このブログは自分のプログラミングの経験のため、自分で1から作ってみたものです。
       </p>
       <p className="mb-6">
         もともと留学についての情報発信には興味があったのですが、プログラミングの勉強も兼ねてそれができるといいなと思ったのでブログを始めることにしました。<br />
-        自分の技術力の向上という目的もあるので、ブログの見た目や機能はちょくちょく変わるかもしれません（し、変わらないかもしれません）
+        自分の技術力の向上という目的もあり運用しながらサイトを改善していきたいと思っているので、ブログの見た目や機能はちょくちょく変わるかもしれません。
       </p>
 
-      <h2 className="text-2xl font-bold mb-4 mt-8 bg-purple-100 text-purple-800 py-2 px-4 rounded-lg border-l-4 border-purple-500">ブログの内容</h2>
+      <h2 className="text-2xl font-bold mb-4 mt-8 bg-green-100 text-green-800 py-2 px-4 rounded-lg border-l-4 border-green-500">ブログの内容</h2>
       <ul className="list-disc pl-6 mb-4">
         <li>大学院での学びや留学生活について</li>
         <li>ブリスベンでの現地生活について</li>
@@ -43,8 +43,21 @@ export default function AboutPage() {
         などなど、情報発信や、あるいはちょっとした個人的な日記のような内容を気ままに書いていくと思います。
       </p>
 
-      <p className="text-lg">
+      <p>
         気軽に見てもらえるとうれしいです。
+        <br />お問い合わせ、質問などがありましたら以下の管理人のリンクからご連絡ください
+      </p>
+
+      <p className="mt-8 text-center">
+        <a
+          href="https://x.com/あなたのユーザー名"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X（旧Twitter）アカウント"
+          className="inline-block hover:opacity-70 transition"
+        >
+          <img src="/x-logo.png" alt="X（旧Twitter）" width={32} height={32} />
+        </a>
       </p>
     </main>
   );
