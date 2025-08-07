@@ -15,13 +15,13 @@ export default function AboutPage() {
 
       <h2 className="text-2xl font-bold mb-4 mt-8 bg-green-100 text-green-800 py-2 px-4 rounded-lg border-l-4 border-green-500">自己紹介</h2>
       <p className="mb-4">
-        現在、オーストラリア・ブリスベンにある QUT（クイーンズランド工科大学） の大学院に正規留学をしていて、Master of Information Technology を専攻しています。
+        私は現在、オーストラリアのブリスベンにある QUT（クイーンズランド工科大学） の大学院に正規留学をしており、コンピューターサイエンスを専攻しています。
       </p>
       <p className="mb-4">
-        もともとは日本の文系大学を卒業後、普通に就職して働いていましたがエンジニアを目指したいという思いから社会人をを辞め、IT学部への留学に挑戦することにしました。
+        もともとは日本の文系大学を卒業後、ごく普通のサラリーマンとして働いていましたが海外留学したいという思いから社会人を辞め、IT系の学部への留学に挑戦することにしました。
       </p>
       <p className="mb-6">
-        プログラミングなどの技術的なバックグラウンドはほとんどなく、ゼロからのスタートでしたがなんとか留学生活を乗り切っています。
+        プログラミングなどの技術的なバックグラウンドはほとんどなく、ゼロからのスタートをしましたがなんとか留学生活を乗り切っています。
       </p>
 
       <h2 className="text-2xl font-bold mb-4 mt-8 bg-green-100 text-green-800 py-2 px-4 rounded-lg border-l-4 border-green-500">ブログを始めたきっかけ</h2>
@@ -45,7 +45,7 @@ export default function AboutPage() {
 
       <p>
         気軽に見てもらえるとうれしいです。
-        <br />お問い合わせ、質問などがありましたら以下の管理人のリンクからご連絡ください
+        <br />お問い合わせ、質問などがありましたら以下の管理人のXアカウントからご連絡ください。
       </p>
 
       <p className="mt-8 text-center">

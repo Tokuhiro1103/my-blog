@@ -2,7 +2,7 @@
 title: "ブログ始めました！"
 date: "2025-08-03"
 category: "つぶやき"
-tags: ["留学", "生活"]
+tags: ["留学", "オーストラリア生活"]
 image: "/image_ex1.jpg"
 topImage: "/image_ex1.jpg"
 ---
