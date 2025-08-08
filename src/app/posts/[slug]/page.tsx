@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { getPostBySlug, getPostSlugs } from '../../../lib/posts';
 import { remark } from 'remark';
 import html from 'remark-html';
+import Image from 'next/image';
+import Link from 'next/link';
 
 type Props = {
   params: { slug: string }
@@ -28,10 +30,13 @@ export default async function PostPage({ params }: Props) {
       {/* トップ画像 */}
       {(post.meta.topImage || post.meta.image) && (
         <div className="mb-6">
-          <img 
-            src={post.meta.topImage || post.meta.image} 
+          <Image
+            src={post.meta.topImage || post.meta.image}
             alt={`${post.meta.title}のトップ画像`}
+            width={1200}
+            height={256}
             className="w-full h-64 object-cover"
+            priority
           />
         </div>
       )}
@@ -54,14 +59,18 @@ export default async function PostPage({ params }: Props) {
         <div className="mt-20">
           <span className="font-semibold mr-2">タグ:</span>
           {post.meta.tags.map((tag: string) => (
-            <a key={tag} href={`/tags/${encodeURIComponent(tag)}`} className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2 mb-1 hover:bg-blue-200">
+            <Link
+              key={tag}
+              href={`/tags/${encodeURIComponent(tag)}`}
+              className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-2 mb-1 hover:bg-blue-200"
+            >
               {tag}
-            </a>
+            </Link>
           ))}
         </div>
       )}
       <div className="mt-8">
-        <a href="/" className="text-blue-600 hover:underline">← 一覧に戻る</a>
+        <Link href="/" className="text-blue-600 hover:underline">← 一覧に戻る</Link>
       </div>
     </main>
   );

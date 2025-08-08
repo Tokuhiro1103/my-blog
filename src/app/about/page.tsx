@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function AboutPage() {
   return (
     <main className="max-w-4xl mx-auto p-8">
@@ -56,7 +58,7 @@ export default function AboutPage() {
           aria-label="X（旧Twitter）アカウント"
           className="inline-block hover:opacity-70 transition"
         >
-          <img src="/x-logo.png" alt="X（旧Twitter）" width={32} height={32} />
+          <Image src="/x-logo.png" alt="X（旧Twitter）" width={32} height={32} />
         </a>
       </p>
     </main>

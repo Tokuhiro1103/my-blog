@@ -1,4 +1,5 @@
 import { getAllPosts } from '../../../lib/posts';
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface Post {
@@ -54,9 +55,11 @@ export default async function CategoryPage({ params }: { params: { category: str
                 </div>
                 {post.meta.image && (
                   <div className="ml-4 flex-shrink-0">
-                    <img 
-                      src={post.meta.image} 
+                    <Image
+                      src={post.meta.image}
                       alt={`${post.meta.title}の画像`}
+                      width={144}
+                      height={144}
                       className="w-36 h-36 object-cover rounded-lg shadow-sm"
                     />
                   </div>

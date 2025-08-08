@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 
@@ -99,9 +100,11 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
                 </div>
                 {post.meta.image && (
                   <div className="ml-4 flex-shrink-0">
-                    <img 
-                      src={post.meta.image} 
+                    <Image
+                      src={post.meta.image}
                       alt={`${post.meta.title}の画像`}
+                      width={144}
+                      height={144}
                       className="w-36 h-36 object-cover rounded-lg shadow-sm"
                     />
                   </div>

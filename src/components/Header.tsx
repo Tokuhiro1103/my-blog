@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -32,15 +33,15 @@ const Header = () => {
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold">
-            <a href="/">Tokkunのブログ</a>
+            <Link href="/" className="hover:underline">Tokkunのブログ</Link>
           </h1>
           <nav className="lg:hidden">
             <ul className="flex gap-6 text-lg">
               <li>
-                <a href="/" className="hover:underline">Home</a>
+                <Link href="/" className="hover:underline">Home</Link>
               </li>
               <li>
-                <a href="/about" className="hover:underline">About</a>
+                <Link href="/about" className="hover:underline">About</Link>
               </li>
             </ul>
           </nav>
@@ -50,10 +51,10 @@ const Header = () => {
           <nav className="hidden lg:block">
             <ul className="flex gap-6 text-lg">
               <li>
-                <a href="/" className="hover:underline">Home</a>
+                <Link href="/" className="hover:underline">Home</Link>
               </li>
               <li>
-                <a href="/about" className="hover:underline">About</a>
+                <Link href="/about" className="hover:underline">About</Link>
               </li>
             </ul>
           </nav>
