@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { Post } from '../lib/posts';
 
@@ -13,7 +13,7 @@ interface SearchBlogListProps {
 
 const PAGE_SIZE = 5;
 
-export default function SearchBlogList({ posts, categories, tags }: SearchBlogListProps) {
+function SearchBlogListContent({ posts, categories, tags }: SearchBlogListProps) {
   const [page, setPage] = useState(1);
   const searchParams = useSearchParams();
   const search = searchParams.get('search') || '';
@@ -164,5 +164,13 @@ export default function SearchBlogList({ posts, categories, tags }: SearchBlogLi
         </aside>
       </div>
     </div>
+  );
+}
+
+export default function SearchBlogList(props: SearchBlogListProps) {
+  return (
+    <Suspense fallback={<div>読み込み中...</div>}>
+      <SearchBlogListContent {...props} />
+    </Suspense>
   );
 } 
