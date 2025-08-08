@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { getAllPosts, getAllCategories, getAllTags } from '../lib/posts';
 import SearchBlogList from './searchBlogList';
 

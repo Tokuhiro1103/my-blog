@@ -14,7 +14,7 @@ export async function generateStaticParams() {
   return slugs.map(slug => ({ slug: slug.replace(/\.md$/, '') }));
 }
 
-export default async function PostPage({ params }: Props) {
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
 

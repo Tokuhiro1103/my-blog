@@ -15,7 +15,7 @@ interface Post {
   content: string;
 }
 
-export default async function CategoryPage({ params }: { params: { category: string } }) {
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
   const posts = await getAllPosts();
   const decodedCategory = decodeURIComponent(category);
