@@ -58,7 +58,7 @@ export default function AboutPage() {
           aria-label="X（旧Twitter）アカウント"
           className="inline-block hover:opacity-70 transition"
         >
-          <Image src="/x-logo.png" alt="X（旧Twitter）" width={32} height={32} />
+          <Image src="/X-logo.png" alt="X（旧Twitter）" width={32} height={32} />
         </a>
       </p>
     </main>
