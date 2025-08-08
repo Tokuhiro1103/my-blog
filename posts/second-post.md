@@ -1,6 +1,6 @@
 ---
 title: "IT系の大学院って未経験でも入れるの？"
-date: "2025-08-10"
+date: "2025-08-08"
 category: "留学情報"
 tags: ["大学院", "留学"]
 image: "/blog_image1.jpg"
@@ -30,9 +30,9 @@ topImage: "/blog_image2.jpg"
 
 この二つだけになります。
 
-# 大学院の入学要綱（Requirement）について
+# 大学院の入学要綱
 
-では早速私が通っているQUTのMaster Of InformationTechnologyの入学要綱を見ていきましょう
+では早速私が通っているQUTのMaster Of InformationTechnologyの入学要綱（Requirement）を見ていきましょう
 
 QUTに限らず大学のRequirementは基本的にホームページで確認することができます  
 [ホームページのリンク](https://www.qut.edu.au/courses/master-of-information-technology)
