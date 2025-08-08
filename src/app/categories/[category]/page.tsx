@@ -1,19 +1,6 @@
 import { getAllPosts } from '../../../lib/posts';
-import Image from 'next/image';
 import Link from 'next/link';
-
-interface Post {
-  slug: string;
-  meta: {
-    title: string;
-    date: string;
-    category?: string;
-    tags?: string[];
-    image?: string;        // 記事一覧用
-    topImage?: string;     // 記事詳細用
-  };
-  content: string;
-}
+import Image from 'next/image';
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;

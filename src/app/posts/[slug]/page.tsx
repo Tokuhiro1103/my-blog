@@ -5,10 +5,6 @@ import html from 'remark-html';
 import Image from 'next/image';
 import Link from 'next/link';
 
-type Props = {
-  params: { slug: string }
-};
-
 export async function generateStaticParams() {
   const slugs = await getPostSlugs();
   return slugs.map(slug => ({ slug: slug.replace(/\.md$/, '') }));
@@ -31,7 +27,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       {(post.meta.topImage || post.meta.image) && (
         <div className="mb-6">
           <Image
-            src={post.meta.topImage || post.meta.image}
+            src={post.meta.topImage || post.meta.image || ''}
             alt={`${post.meta.title}のトップ画像`}
             width={1200}
             height={256}

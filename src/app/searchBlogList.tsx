@@ -3,19 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-
-interface Post {
-  slug: string;
-  meta: {
-    title: string;
-    date: string;
-    category?: string;
-    tags?: string[];
-    image?: string;        // 記事一覧用
-    topImage?: string;     // 記事詳細用
-  };
-  content: string;
-}
+import type { Post } from '../../lib/posts';
 
 interface SearchBlogListProps {
   posts: Post[];
