@@ -50,7 +50,7 @@ export default function AboutPage() {
 
       <p className="mt-8 text-center">
         <a
-          href="https://x.com/あなたのユーザー名"
+          href="https://x.com/drinkwatching?s=21"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="X（旧Twitter）アカウント"
